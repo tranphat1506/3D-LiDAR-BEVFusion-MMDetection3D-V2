@@ -266,6 +266,7 @@ Outputs the animated sequence to `demo/outputs/nuscenes_mini_gif/nuscenes_360_su
 ├── fix_bevfusion_checkpoint.py        # spconv 1.x to 2.x tensor weight layout fixer
 ├── bev_inferencer.py                  # Core CLI 3D detection inference engine
 ├── mmdet3d_inference2.py              # Backward-compatibility wrapper around bev_inferencer.py
+├── 3d_lidar_bevfusion_mmdetection3d_v2.py  # Local inference entry point (syntax-checked only)
 ├── setup_demo.py                      # Cross-platform 10-sample inference pipeline
 ├── run_inference_all.py               # GPU batch inference runner for all 404 frames
 ├── visualize_demo.py                  # Top-down BEV rendering pipeline
@@ -294,8 +295,11 @@ The root directory contains dedicated, standalone scripts designed for specific 
 | `visualize_nuscenes_mini_gif.py` | Multi-panel dashboard generator arranging six surround cameras (three front, three back) alongside a large BEV detection panel. Automatically compiles multi-frame sequences into an animated GIF. | `demo/outputs/nuscenes_mini_gif/*.gif` |
 | `fix_bevfusion_checkpoint.py` | Fixes tensor layout mismatch between `spconv 1.x` (`[out_ch, D, H, W, in_ch]`) and `spconv 2.x` (`[D, H, W, in_ch, out_ch]`) via `weight.permute(1, 2, 3, 4, 0).contiguous()`. | `*_fixed.pth` |
 | `bev_inferencer.py` | Comprehensive command-line diagnostic tool supporting multi-modality (LiDAR, monocular, multi-modal), Open3D 3D point cloud and bounding box artifact exports (`.ply`), and 2D camera projections. | Predictions, `.ply` models, 2D projections |
+| `3d_lidar_bevfusion_mmdetection3d_v2.py` | Local-machine BEVFusion inference entry point. Accepts a single point cloud or a directory, auto-detects config, checkpoint, and device, and writes inference JSON plus optional BEV PNGs. No Colab dependencies. **Syntax-checked only; runtime inference has not been validated.** | `demo/outputs/preds/*.json`, `demo/outputs/vis/*.png` |
 | `scripts/visualize_bev.py` | Standalone BEV renderer that auto-detects point cloud channel layouts (nuScenes 5D and generic 4D binary formats) and draws top-down point clouds with prediction boxes. | BEV images |
 | `scripts/open3d_view_saved_ply.py` | Interactive Open3D viewer for PLY point clouds, axes, predicted boxes, labels, and ground-truth boxes exported by the inferencer. | Interactive 3D window or screenshot |
+
+> **Note:** `3d_lidar_bevfusion_mmdetection3d_v2.py` is a newly added local inference entry point. It has only been syntax-checked with `python3 -m py_compile` and AST parsing. It has not been runtime-tested against a complete MMDetection3D environment, so validate it before relying on its predictions.
 
 ---
 
