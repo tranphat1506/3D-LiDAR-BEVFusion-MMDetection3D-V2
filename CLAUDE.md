@@ -91,11 +91,11 @@ python visualize_nuscenes_mini_gif.py
 ## Asset & Notebook Storage Guidelines
 
 - **Demo Media (`assets/`)**: All public showcase images, videos, posters, and animated GIFs are stored in `assets/`:
-  - `assets/BEVFusion_Demo_Full.mp4`: 1080p Full HD video (404 frames @ 20 FPS).
+  - `assets/BEVFusion_Demo_Full.mp4`: 1080p Full HD video (404 frames at 10 FPS, 40.4 seconds).
   - `assets/demo_preview.gif`: Animated dashboard preview.
-  - `assets/bev_visualization_sample.png`: High-resolution BEV detection plot.
-  - `assets/demo_dashboard_poster.png`: 360-degree surround frame.
-- **Development Notebooks (`notebooks/`)**: The development notebook (`notebooks/BEVFusion_Python3_10.ipynb`) is preserved on disk for development and experimentation, but is excluded from Git via `.gitignore` pending review.
+  - `assets/bev_visualization_sample.png`: BEV detection panel extracted from the demo video.
+  - `assets/demo_dashboard_poster.png`: 360-degree surround and BEV dashboard frame.
+- **Development Notebooks (`notebooks/`)**: The verified notebook is `notebooks/3D_LiDAR_BEVFusion_MMDetection3D_V2.ipynb` (54 cells: 43 code, 11 markdown; 57 stored outputs). It is tracked by Git; only `.ipynb_checkpoints/` remains ignored.
 
 ---
 
