@@ -1,0 +1,48 @@
+name: Feature Request
+description: Suggest an idea or enhancement for this project
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a feature or improvement! Please explain your proposal and how it aligns with the project goals.
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Problem or Motivation
+      description: Is your feature request related to a problem, limitation, or new capability?
+      placeholder: A clear and concise description of the limitation or use case.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe what you would like to happen and how the feature should work.
+      placeholder: Provide detailed technical or workflow descriptions of the proposed change.
+    validations:
+      required: true
+  - type: textarea
+    id: benefits
+    attributes:
+      label: Expected Benefits
+      description: Explain how this enhancement improves accuracy, performance, developer experience, or visualization quality.
+      placeholder: Outline why this feature would be valuable to the community.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: Describe any alternative solutions, tools, or workarounds you have considered.
+      placeholder: Optional details on other approaches evaluated.
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Add any other context, academic paper references, diagrams, or mockups here.
+    validations:
+      required: false
