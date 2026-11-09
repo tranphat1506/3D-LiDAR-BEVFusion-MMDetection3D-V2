@@ -53,8 +53,6 @@ analyze_*.py
 
 # Jupyter notebooks
 .ipynb_checkpoints/
-*.ipynb
-notebooks/
 
 # IDE
 .vscode/
